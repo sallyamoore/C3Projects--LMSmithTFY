@@ -16,12 +16,13 @@ RSpec.describe Song, type: :model do
       expect(song.errors.keys).to include(:lyrics)
     end
 
-    it "title must be unique" do
+    it "title and lyrics must be unique" do
       create :song
       song = build :song
 
       expect(song).not_to be_valid
       expect(song.errors.keys).to include(:title)
+      expect(song.errors.keys).to include(:lyrics)
     end
   end
 end
