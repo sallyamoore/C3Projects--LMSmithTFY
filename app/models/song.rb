@@ -3,4 +3,9 @@ class Song < ActiveRecord::Base
 
   # Validations
   validates :title, :lyrics, presence: true, uniqueness: true
+
+  # Methods
+  def self.search(query)
+    where("lyrics like ?", "%#{query}%")
+  end
 end
