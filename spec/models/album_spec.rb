@@ -16,7 +16,7 @@ RSpec.describe Album, type: :model do
       expect(album.errors.keys).to include(:year)
     end
 
-    it "must have a name" do
+    it "name must be unique" do
       create :album
       album = build :album
 
