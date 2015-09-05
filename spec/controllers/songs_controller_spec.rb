@@ -11,9 +11,18 @@ RSpec.describe SongsController, type: :controller do
   describe "Searching the db for relevant lyrics" do
     describe "GET #search" do
       it "should be successful" do
-        get :search
+        get :search, query: "job"
         expect(response).to be_ok
       end
+      
+      # Not sure how to test this... Currently fails
+      # it "should find relevant songs by searching lyrics" do
+      #   song = create :song
+      #   result = get :search, query: "job"
+      #   expect(result).to include(song.title)
+      #   # expect(assigns(response)).to be(song.title)
+      #
+      # end
     end
   end
 

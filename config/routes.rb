@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'songs#index'
+
+  controller :songs do
+    get '/search', action: 'search', as: 'search'
+  end
   # get 'songs'
 
   # Example of regular route:
