@@ -22,3 +22,5 @@ coverage
 
 # Ignore vcr spec directory because it contains SECRETS!
 spec/vcr/*
+
+format-lyrics.rb
