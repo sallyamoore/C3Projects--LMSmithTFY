@@ -12,7 +12,7 @@ Smiths fans everywhere.
 * Consume an API to play audio
 * Use JavaScript for display logic
 * Visual appeal, polished look and feel
-* Awesome things happen when results are return
+* Awesome things happen when results are returned
 
 ## Technologies/frameworks/patterns
 * Ruby on Rails, MVC pattern

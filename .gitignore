@@ -15,3 +15,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+coverage
+.DS_Store
+.env
+
+# Ignore vcr spec directory because it contains SECRETS!
+spec/vcr/*
