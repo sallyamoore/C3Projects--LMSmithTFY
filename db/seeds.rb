@@ -8,7 +8,7 @@
 require 'csv'
 
 CSV.foreach("db/albums.csv", headers: true, col_sep: ";") do |row|
-  Album.create!(album: row[0], year: row[1])
+  Album.create!(name: row[0], year: row[1])
 end
 
 CSV.foreach("db/songs.csv", headers: true, col_sep: ";") do |row|

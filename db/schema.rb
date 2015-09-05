@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150905202329) do
 
   create_table "albums", force: :cascade do |t|
-    t.string   "album"
+    t.string   "name"
     t.string   "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
