@@ -1,6 +1,7 @@
 <% @songs.each do |song| %>
   <p><%= song.title %></p>
-  <p><%= song.lyrics.downcase.scan(params[:search]).size %></p>
-
-
 <% end %>
+
+ <div hidden class="api-response">
+  <%= @data["song"]["uri"] %>
+ </div>

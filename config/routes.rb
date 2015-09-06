@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   controller :songs do
     get '/search', action: 'search', as: 'search'
+    get '/query_api/:top_match', action: 'query_api', as: 'query_api'
+
   end
   # get 'songs'
 
