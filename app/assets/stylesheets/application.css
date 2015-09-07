@@ -42,6 +42,20 @@ button:hover {
    border: solid 1px rgba(0,0,0,0.29);
 }
 
+audio {
+  display: block;
+  margin: 5px auto;
+}
+
+p.courtesy-of {
+  font-size: .7em;
+}
+
+.details {
+  font-size: .5em;
+  font-style: italic;
+}
+
 .search-form {
   font-family: Arial, sans-serif;
   margin: 0 auto;
@@ -50,12 +64,19 @@ button:hover {
 }
 
 .search-results {
+  margin-top: 2em;
   background-color: #E28B8B;
   width: 100%;
   height: 100%;
   font-size: 2em;
-  font-weight: bold;
   color: #fff;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: -15px;
+  padding: 0 1em;
 }
 
 .form-field {
@@ -67,6 +88,10 @@ button:hover {
 .smith {
   font-family: 'Montserrat Alternates', sans-serif;
   font-size: 4em;
+}
+
+.alert {
+  color: red;
 }
 
 #s, #t {

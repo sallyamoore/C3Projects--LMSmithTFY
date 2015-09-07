@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Montserrat|Questrial|Viga|Montserrat+Alternates' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
-
+  <% if flash[:error] %>
+    <h5 class="alert"><%= flash[:error] %></h5>
+  <% end %>
 <%= yield %>
 
 </body>

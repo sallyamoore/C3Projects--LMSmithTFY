@@ -1,13 +1,27 @@
 <body class="search-results">
   <p>best matches:</p>
   <% @songs.each do |song| %>
-    <p><%= song.title.upcase %></p>
+    <p class="title"><%= song.title.upcase %></p>
+    <p class="details">album(s):
+        <% albums = [] %>
+        <% song.albums.each do |album| %>
+          <% albums << "#{album.name}, (#{album.year})" %>
+        <% end %>
+        <%= albums.join("; ") %>
+    </p>
+
   <% end %>
 
 
   <div hidden class="api-response">
-    <%= @data["song"]["uri"] %>
+    <%= @data["previewUrl"] %>
+
+    <% # @data["song"]["uri"] %>
   </div>
+
+
+
+<!-- BELOW IS ALL FOR SHOWING ITUNES BADGE... COULDN'T GET IT TO WORK UNLESS I PASTED HERE -->
+
+
 </body>
-<!-- IF I GET YOUTUBE WORKING -->
- <!-- <div id="player"></div> -->
