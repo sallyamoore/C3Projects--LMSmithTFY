@@ -1,7 +1,13 @@
-<% @songs.each do |song| %>
-  <p><%= song.title %></p>
-<% end %>
+<body class="search-results">
+  <p>best matches:</p>
+  <% @songs.each do |song| %>
+    <p><%= song.title.upcase %></p>
+  <% end %>
 
- <div hidden class="api-response">
-  <%= @data["song"]["uri"] %>
- </div>
+
+  <div hidden class="api-response">
+    <%= @data["song"]["uri"] %>
+  </div>
+</body>
+<!-- IF I GET YOUTUBE WORKING -->
+ <!-- <div id="player"></div> -->

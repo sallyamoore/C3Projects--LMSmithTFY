@@ -2,10 +2,8 @@ require 'httparty'
 
 class SongsController < ApplicationController
 
-  # CALLBACK_URL = "http://localhost:3000/callback/"
   SPOTIFY_URI = "https://api.spotify.com/v1/search?q=The+Smiths"
-  # DOMAIN = "localhost"
-  # https://play.spotify.com/artist/3yY2gUcIsjMr8hjo51PoJ8
+  # YOUTUBE_URI = "https://www.googleapis.com/youtube/v3/videos?key=#{YOUTUBE_KEY}&part=player,contentDetails&id="
   def index; end
 
   def search
@@ -15,11 +13,8 @@ class SongsController < ApplicationController
     end
 
     top_match = @songs.first.title # returns title of top match
-    # replace whitespace with +
-    top_match = top_match.gsub(" ", "+")
+    top_match = top_match.gsub(" ", "+") # replaces whitespace with +
     @data = query_api(top_match)
-    # render "/query_api/#{@top_match}"
-# raise
   end
 
   def query_api(top_match)
@@ -31,7 +26,6 @@ class SongsController < ApplicationController
       data = {}
       code = :no_content
     end
-# raise
     return data
   end
 
