@@ -24,6 +24,33 @@ class SongsController < ApplicationController
     end
   end
 
+  # RAN OUT OF TIME, BUT I MAY COME BACK TO THIS LATER
+  def feeling_miserable
+    offset = rand(Song.count)
+    @random_song = Song.offset(offset).first
+    @data = query_api(@random_song.title)
+    gif_hash = {  gif1: { embed_id: "36cGJoVcFMwQo",
+                          height: "355",
+                          url_detail: "celebrity-1970s-36cGJoVcFMwQo" },
+                  gif2: { embed_id: "NezgviZJGvQ3K",
+                          height: "540",
+                          url_detail: "morrissey-the-smiths-NezgviZJGvQ3K" },
+                  gif3: { embed_id: "PSB2lxGv85gSQ",
+                          height: "429",
+                          url_detail: "dancing-morrissey-PSB2lxGv85gSQ" },
+                  gif4: { embed_id: "SbemvsIiE2fzq",
+                          height: "268",
+                          url_detail: "morrissey-the-smiths-SbemvsIiE2fzq" },
+                  gif5: { embed_id: "ENKbvrwRPrWRa",
+                          height: "360",
+                          url_detail: "morrissey-zBTxf5MZBgYXm" },
+                  gif6: { embed_id: "zBTxf5MZBgYXm",
+                          height: "336",
+                          url_detail: "morrissey-ENKbvrwRPrWRa" }
+                }
+    @random_gif = gif_hash[gif_hash.keys.sample]
+  end
+
   def query_api(top_match)
     begin
       response = HTTParty.get("#{ITUNES_URI}+#{top_match}", {format: :json})
@@ -37,14 +64,7 @@ class SongsController < ApplicationController
     return data
   end
 
-  private
-
   def setup_data(response)
-    # track = {"song" => {}}
-    # track["results"]["spotify_url"] = response["tracks"]["items"].first["external_urls"]["spotify"]
-    # track["song"]["href"] = response["tracks"]["items"].first["href"]
-    # track["song"]["id"] = response["tracks"]["items"].first["id"]
-    # track["song"]["uri"] = response["tracks"]["items"].first["uri"]
     track = {}
     track["previewUrl"]= response["results"].first["previewUrl"]
     track["trackViewUrl"] = response["results"].first["trackViewUrl"]
@@ -60,4 +80,6 @@ class SongsController < ApplicationController
 
     return songs.take(5)
   end
+
+
 end

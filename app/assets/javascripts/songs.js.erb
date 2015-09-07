@@ -5,6 +5,8 @@ $(document).ready(function() {
 });
 
 function songPlayer(url, track_url) {
+  $("audio, img, .player").remove();
+
   var audio = $("<audio autoplay='true' controls='true' src=''></audio>");
   var audioDiv = $("<div class='player'><p class='courtesy-of'>(provided courtesy of iTunes)</p></div>");
   $(".details").first().append(audioDiv);

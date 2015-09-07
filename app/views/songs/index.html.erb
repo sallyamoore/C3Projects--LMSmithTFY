@@ -5,7 +5,12 @@
     <div class="search-form">
       <%= text_field_tag :search, params[:query], class: "form-field", placeholder: "morbid and pale" %>
       <button type="submit">Smiths Search</button>
-      <!-- <button type="button">I'm Feeling Miserable</button> -->
     </div>
   <% end %>
+
+  <!-- RAN OUT OF TIME FOR THIS BUT MIGHT COME BACK TO IT LATER -->
+  <%= form_tag(feeling_miserable_path, :method => "get") do %>
+      <button class="btn-miserable" type="submit">I'm Feeling Miserable</button>
+  <% end %>
+
 </div>

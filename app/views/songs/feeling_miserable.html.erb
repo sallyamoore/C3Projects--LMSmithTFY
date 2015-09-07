@@ -1,0 +1,26 @@
+<body class="random-result">
+
+  <p class="title"><%= @random_song.title.upcase %></p>
+  <p class="details">album(s):
+      <% albums = [] %>
+      <% @random_song.albums.each do |album| %>
+        <% albums << "#{album.name}, (#{album.year})" %>
+      <% end %>
+      <%= albums.join("; ") %>
+  </p>
+
+  <div hidden class="api-preview">
+    <% unless @data.empty? %>
+      <%= @data["previewUrl"] %>
+    <% end %>
+  </div>
+  <div hidden class="api-track">
+    <% unless @data.empty? %>
+      <%= @data["trackViewUrl"] %>
+    <% end %>
+  </div>
+
+  <div>
+    <iframe src="//giphy.com/embed/<%= @random_gif[:embed_id] %>" width="480" height="<%= @random_gif[:height] %>" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p class="courtesy-of"><a href="http://giphy.com/gifs/<%= @random_gif[:url_detail] %>">via GIPHY</a></p>
+  </div>
+</body>
