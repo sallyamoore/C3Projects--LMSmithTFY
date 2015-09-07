@@ -50,6 +50,9 @@ group :development, :test do
 
   # VCR for API requests
   gem 'vcr', '~> 2.9.3'
+
+  # for debugging
+  gem 'pry'
 end
 
 group :development do

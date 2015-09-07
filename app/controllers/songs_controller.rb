@@ -9,10 +9,9 @@ class SongsController < ApplicationController
 
   def search
     if params[:search]
-      query = params[:search].downcase
-      @songs = sort_and_limit_results(query)
+      @songs = sort_and_limit_results(params[:search].downcase)
     else
-      redirect_to search_path, flash: { error: MESSAGES[:general_error] }
+      @songs = nil
     end
 
     if @songs.nil? || @songs.empty?
@@ -24,7 +23,6 @@ class SongsController < ApplicationController
     end
   end
 
-  # RAN OUT OF TIME, BUT I MAY COME BACK TO THIS LATER
   def feeling_miserable
     offset = rand(Song.count)
     @random_song = Song.offset(offset).first
@@ -61,7 +59,8 @@ class SongsController < ApplicationController
       data = {}
       code = :no_content
     end
-    return data
+    # return data
+    return { data: data.as_json, code: code }
   end
 
   def setup_data(response)
