@@ -9,19 +9,17 @@
         <% end %>
         <%= albums.join("; ") %>
     </p>
-
   <% end %>
 
-
-  <div hidden class="api-response">
-    <%= @data["previewUrl"] %>
-
-    <% # @data["song"]["uri"] %>
+  <div hidden class="api-preview">
+    <% unless @data.empty? %>
+      <%= @data["previewUrl"] %>
+    <% end %>
   </div>
-
-
-
-<!-- BELOW IS ALL FOR SHOWING ITUNES BADGE... COULDN'T GET IT TO WORK UNLESS I PASTED HERE -->
-
+  <div hidden class="api-track">
+    <% unless @data.empty? %>
+      <%= @data["trackViewUrl"] %>
+    <% end %>
+  </div>
 
 </body>

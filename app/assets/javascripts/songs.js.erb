@@ -1,15 +1,18 @@
 $(document).ready(function() {
-  var data = $(".api-response").text();
-  songPlayer(data);
+  var data = $(".api-preview").text();
+  var track = $(".api-track").text();
+  songPlayer(data, track);
 });
 
-function songPlayer(url) {
+function songPlayer(url, track_url) {
   var audio = $("<audio autoplay='true' controls='true' src=''></audio>");
   var audioDiv = $("<div class='player'><p class='courtesy-of'>(provided courtesy of iTunes)</p></div>");
   $(".details").first().append(audioDiv);
   audioDiv.prepend(audio);
   audio.attr("src", url);
 
+  var link_url = $("<a href='" + track_url + "'></a>")
   var itunesImg = $("<img width=100px; src=" + "<%= asset_path('Get_it_on_iTunes_Badge_US_1114.svg') %>" + " alt='Get it on iTunes'>");
-  $(".player").append(itunesImg);
+  $(".player").append(link_url);
+  link_url.append(itunesImg)
 }
