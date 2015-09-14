@@ -23,7 +23,7 @@ Smiths fans everywhere.
 * Database: SQLite 3
 
 ## Tech and/or skill dependencies - I'm not sure what this means... What (else?) should go here?
-* API: Rdio or Spotify?
+* API: iTunes
 
 ## End Game
 ### Done:
