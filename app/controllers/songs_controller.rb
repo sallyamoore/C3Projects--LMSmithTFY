@@ -26,7 +26,7 @@ class SongsController < ApplicationController
   def feeling_miserable
     offset = rand(Song.count)
     @random_song = Song.offset(offset).first
-    @data = query_api(@random_song.title)
+    @data = query_api(@random_song.title.gsub(" ", "+"))
     gif_hash = {  gif1: { embed_id: "36cGJoVcFMwQo",
                           height: "355",
                           url_detail: "celebrity-1970s-36cGJoVcFMwQo" },
@@ -51,7 +51,7 @@ class SongsController < ApplicationController
 
   def query_api(top_match)
     # begin
-      response = HTTParty.get("#{ITUNES_URI}+#{top_match}", {format: :json})
+      response = HTTParty.get("#{ITUNES_URI}#{top_match}", {format: :json})
 
       data =  setup_data(response)
       code = :ok
