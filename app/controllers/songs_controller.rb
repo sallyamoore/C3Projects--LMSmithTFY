@@ -50,15 +50,15 @@ class SongsController < ApplicationController
   end
 
   def query_api(top_match)
-    begin
+    # begin
       response = HTTParty.get("#{ITUNES_URI}+#{top_match}", {format: :json})
 
       data =  setup_data(response)
       code = :ok
-    rescue
-      data = {}
-      code = :no_content
-    end
+    # rescue
+    #   data = {}
+    #   code = :no_content
+    # end
     # return data
     return { data: data.as_json, code: code }
   end
