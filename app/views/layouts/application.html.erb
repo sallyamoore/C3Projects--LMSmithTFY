@@ -10,10 +10,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
-  <% if flash[:error] %>
-    <h5 class="alert"><%= flash[:error] %></h5>
-  <% end %>
-<%= yield %>
-
+  <div class="page-wrap">
+    <% if flash[:error] %>
+      <h5 class="alert"><%= flash[:error] %></h5>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
+<footer>
+  <p>
+    Sally Moore &#169; 2015
+  </p>
+</footer>
 </html>

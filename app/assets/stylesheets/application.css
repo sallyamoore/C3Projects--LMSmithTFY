@@ -14,9 +14,18 @@
  *= require_self
  */
 
+ html, body {
+   height: 100%;
+ }
+
 body {
   text-align: center;
   font-family: 'Droid Serif', serif;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
 }
 
 h1{
@@ -49,6 +58,16 @@ button:hover {
 audio {
   display: block;
   margin: 5px auto;
+}
+
+footer, .page-wrap:after {
+  height: 100px;
+}
+
+footer {
+  margin: 60px 30px 50px 30px;
+  float: right;
+  font-size: 12px;
 }
 
 p.courtesy-of {
