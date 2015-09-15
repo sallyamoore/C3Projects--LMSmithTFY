@@ -70,8 +70,13 @@ footer {
   font-size: 12px;
 }
 
-p.courtesy-of {
-  font-size: .7em;
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.courtesy-of {
+  font-size: 12px;
 }
 
 .details {
