@@ -9,6 +9,7 @@ class SongsController < ApplicationController
 
   def search
     if params[:search]
+      params[:search].strip!
       @songs = sort_and_limit_results(params[:search].downcase)
     else
       @songs = nil
