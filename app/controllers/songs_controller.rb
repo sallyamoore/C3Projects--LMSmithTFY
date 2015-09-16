@@ -9,7 +9,6 @@ class SongsController < ApplicationController
 
   def search
     if params[:search]
-      params[:search].gsub!("%", "")
       @songs = sort_and_limit_results(params[:search].downcase)
     else
       @songs = nil
