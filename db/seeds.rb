@@ -12,7 +12,7 @@ CSV.foreach("db/albums.csv", headers: true, col_sep: ";") do |row|
 end
 
 CSV.foreach("db/songs.csv", headers: true, col_sep: ";") do |row|
-  Song.create!(title: row[0], lyrics: row[1])
+  Song.create!(title: row[0], lyrics: row[1].downcase)
 end
 
 # starting to seed foreign key relationships; stopped at song 21 (end of album 2) for now.

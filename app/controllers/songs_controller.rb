@@ -74,7 +74,7 @@ class SongsController < ApplicationController
   def sort_and_limit_results(query)
     songs = Song.search(query).order(:title)
     songs = songs.sort_by do |song|
-      -song.lyrics.downcase.scan(query).size
+      -song.lyrics.scan(query).size
     end
 
     return songs.take(5)
