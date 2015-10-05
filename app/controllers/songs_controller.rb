@@ -2,8 +2,8 @@ require 'httparty'
 
 class SongsController < ApplicationController
 
-  SPOTIFY_URI = "https://api.spotify.com/v1/search?q=The+Smiths"
   ITUNES_URI = "https://itunes.apple.com/search?term=the+smiths+"
+  RESULT_LIMIT = 5
 
   def index; end
 
@@ -50,18 +50,15 @@ class SongsController < ApplicationController
   end
 
   def query_api(top_match)
-    # begin
       response = HTTParty.get("#{ITUNES_URI}#{top_match}", {format: :json})
 
       data =  setup_data(response)
       code = :ok
-    # rescue
-    #   data = {}
-    #   code = :no_content
-    # end
-    # return data
+
     return { data: data.as_json, code: code }
   end
+
+  private
 
   def setup_data(response)
     track = {}
@@ -73,12 +70,13 @@ class SongsController < ApplicationController
 
   def sort_and_limit_results(query)
     songs = Song.search(query).order(:title)
+
+    # sort returned songs in descending order by number of matches
     songs = songs.sort_by do |song|
       -song.lyrics.scan(query).size
     end
 
-    return songs.take(5)
+    # limit to 5 best matches
+    return songs.take(RESULT_LIMIT)
   end
-
-
 end
