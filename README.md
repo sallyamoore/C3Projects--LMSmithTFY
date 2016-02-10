@@ -12,7 +12,7 @@ Smiths fans everywhere.
 * Consume an API to play audio
 * Use JavaScript for display logic
 * Visual appeal, polished look and feel
-* Use csv to seed (I haven't done this in prior projects)
+* Use csv to seed 
 * Awesome things happen when results are returned
 
 ## Technologies/frameworks/patterns
@@ -22,8 +22,8 @@ Smiths fans everywhere.
 * Rspec for testing
 * Database: SQLite 3
 
-## Tech and/or skill dependencies - I'm not sure what this means... What (else?) should go here?
-* API: iTunes
+## Tech dependencies
+* API: iTunes, Giphy
 
 ## End Game
 ### Done:
